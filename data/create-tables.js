@@ -20,7 +20,11 @@ async function run() {
                 CREATE TABLE marbles (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
-                    cool_factor INTEGER NOT NULL,
+                    image VARCHAR(512) NOT NULL,
+                    description VARCHAR(512) NOT NULL,
+                    category VARCHAR(512) NOT NULL,
+                    price INTEGER NOT NULL,
+                    cost INTEGER NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);

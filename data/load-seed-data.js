@@ -25,12 +25,12 @@ async function run() {
     const user = users[0].rows[0];
 
     await Promise.all(
-      marbles.map(animal => {
+      marbles.map(marble => {
         return client.query(`
-                    INSERT INTO marbles (name, cool_factor, owner_id)
-                    VALUES ($1, $2, $3);
+                    INSERT INTO marbles (name, image, description, category, price, cost, owner_id)
+                    VALUES ($1, $2, $3, $4, $5, $6, $7);
                 `,
-        [animal.name, animal.cool_factor, user.id]);
+        [marble.name, marble.image, marble.description, marble.category, marble.price, marble.cost, user.id]);
       })
     );
     

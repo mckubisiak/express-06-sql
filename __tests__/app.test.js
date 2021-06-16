@@ -93,5 +93,31 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
+
+    test('returns marbles', async() => {
+
+      const expectation =
+        {
+          id: 4,
+          name: 'catyeye',
+          image: 'catyeye.png',
+          description: 'This ones just gonna knock your stuff down.',
+          category: 'common',
+          price: '50',
+          cost: '4.25',
+          owner_id: 1
+        }
+      ;
+
+
+      const data = await fakeRequest(app)
+        .get('/marbles/4')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
+    
   });
 });

@@ -23,8 +23,8 @@ async function run() {
                     image VARCHAR(512) NOT NULL,
                     description VARCHAR(512) NOT NULL,
                     category VARCHAR(512) NOT NULL,
-                    price INTEGER NOT NULL,
-                    cost INTEGER NOT NULL,
+                    price DECIMAL NOT NULL,
+                    cost DECIMAL NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);

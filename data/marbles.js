@@ -5,10 +5,10 @@ module.exports = [
     image: 'crackattack.png',
     description: 'Crack attack breaks other marbles in half',
     category: 'rare',
-    price: 189.00,
-    cost: 16.00
+    price: 189,
+    cost: 16.00,
+    owner_id: 1
   },
-    
   {
     id: 2,
     name: 'Basic Blue',
@@ -16,9 +16,9 @@ module.exports = [
     description: 'Baisc blue has some boring swirls',
     category: 'common',
     price: 6.50,
-    cost: 0.25
+    cost: 0.25,
+    owner_id: 1
   },
-    
   { 
     id: 3,
     name: 'Windy',
@@ -26,9 +26,9 @@ module.exports = [
     description: 'Swwoooosh',
     category: 'uncommon',
     price: 15.00,
-    cost: 3.00
+    cost: 3.00,
+    owner_id: 1
   },
-    
   {
     id: 4,
     name: 'catyeye',
@@ -36,9 +36,9 @@ module.exports = [
     description: 'This ones just gonna knock your stuff down.',
     category: 'common',
     price: 50.00,
-    cost: 4.25 
+    cost: 4.25,
+    owner_id: 1
   },
-    
   { 
     id: 5,
     name: 'Neuron',
@@ -46,6 +46,7 @@ module.exports = [
     description: 'Swwoooosh',
     category: 'rare',
     price: 250.00,
-    cost: 45.00
+    cost: 45.00,
+    owner_id: 1
   }
 ];

@@ -35,22 +35,54 @@ describe('app routes', () => {
 
       const expectation = [
         {
-          'id': 1,
-          'name': 'bessie',
-          'coolfactor': 3,
-          'owner_id': 1
+          id: 1,
+          name: 'Crack Attack',
+          image: 'crackattack.png',
+          description: 'Crack attack breaks other marbles in half',
+          category: 'rare',
+          price:'189',
+          cost: '16',
+          owner_id: 1
         },
         {
-          'id': 2,
-          'name': 'jumpy',
-          'coolfactor': 4,
-          'owner_id': 1
+          id: 2,
+          name: 'Basic Blue',
+          image: 'basicblue.png',
+          description: 'Baisc blue has some boring swirls',
+          category: 'common',
+          price: '6.5',
+          cost: '0.25',
+          owner_id: 1
+        },
+        { 
+          id: 3,
+          name: 'Windy',
+          image: 'windy.png',
+          description: 'Swwoooosh',
+          category: 'uncommon',
+          price: '15',
+          cost: '3',
+          owner_id: 1
         },
         {
-          'id': 3,
-          'name': 'spot',
-          'coolfactor': 10,
-          'owner_id': 1
+          id: 4,
+          name: 'catyeye',
+          image: 'catyeye.png',
+          description: 'This ones just gonna knock your stuff down.',
+          category: 'common',
+          price: '50',
+          cost: '4.25',
+          owner_id: 1
+        },
+        { 
+          id: 5,
+          name: 'Neuron',
+          image: 'neuron.png',
+          description: 'Swwoooosh',
+          category: 'rare',
+          price:'250',
+          cost: '45',
+          owner_id: 1
         }
       ];
 

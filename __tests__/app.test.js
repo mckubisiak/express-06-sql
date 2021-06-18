@@ -32,7 +32,6 @@ describe('app routes', () => {
     });
 
     test('returns marbles', async() => {
-
       const expectation = [
         {
           id: 1,
@@ -94,8 +93,7 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
-    test('returns marbles', async() => {
-
+    test('returns single marble', async() => {
       const expectation =
         {
           id: 4,
@@ -109,7 +107,6 @@ describe('app routes', () => {
         }
       ;
 
-
       const data = await fakeRequest(app)
         .get('/marbles/4')
         .expect('Content-Type', /json/)
@@ -118,6 +115,102 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
+    test('creates a new marble!', async() => {
+      const data = await fakeRequest(app)
+        .post('/marbles/')
+        .send(
+          {
+            name: 'Earth Marble',
+            image: 'earthmarble.png',
+            description: 'spectacular object, terrible inhabitence ',
+            category: 'uncommon',
+            price: '50',
+            cost: '5'
+          })
+
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const marbles =  await fakeRequest(app)
+        .get('/marbles')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const newMarble =  {
+        id: 6,
+        name: 'Earth Marble',
+        image: 'earthmarble.png',
+        description: 'spectacular object, terrible inhabitence ',
+        category: 'uncommon',
+        price: '50',
+        cost: '5',
+        owner_id: 1
+      };
+
+
+      expect(data.body).toEqual(newMarble);
+      expect(marbles.body).toContainEqual(newMarble);
+    });
     
+    test('updates a single marble', async() => {
+
+      const data = await fakeRequest(app)
+        .put('/marbles/6')
+        .send({
+          name: 'replace',
+          image: 'this contents',
+          description: 'if thi',
+          category: 'object',
+          price: '50',
+          cost: '5'
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const marbleData = await fakeRequest(app)
+        .get('/marbles')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const newMarble = {
+        id: 6,
+        name: 'replace',
+        image: 'this contents',
+        description: 'if thi',
+        category: 'object',
+        price: '50',
+        cost: '5',
+        owner_id: 1
+      };
+
+      expect(data.body).toEqual(newMarble);
+      expect(marbleData.body).toContainEqual(newMarble);
+    });
+
+    test('/DELETE marbles deletes a single marbles', async() => {
+
+      await fakeRequest(app)
+        .delete('/marbles/6')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const marbleData = await fakeRequest(app)
+        .get('/marbles')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const newMarble = {
+        id: 6,
+        name: 'replace',
+        image: 'this contents',
+        description: 'if thi',
+        category: 'object',
+        price: '50',
+        cost: '5',
+        owner_id: 1
+      };
+
+      expect(marbleData.body).not.toContainEqual(newMarble);
+    });
   });
 });

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const client = require('../lib/client');
 // import our seed data:
 const marbles = require('./marbles.js');

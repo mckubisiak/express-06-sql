@@ -175,12 +175,14 @@ describe('app routes', () => {
         .expect(200);
 
       const newMarble = {
+        id: 6,
         name: 'replace',
         image: 'this contents',
         description: 'if thi ',
         category: 'object',
         price: '50',
-        cost: '5'
+        cost: '5',
+        owner_id: 1,
       };
 
       // check that the put request responds with the new marbles
@@ -193,7 +195,7 @@ describe('app routes', () => {
 
       // make a request to update the new marbles
       await fakeRequest(app)
-        .delete('/marble/16')
+        .delete('/marble/6')
         .expect('Content-Type', /json/)
         .expect(200);
 
@@ -203,12 +205,15 @@ describe('app routes', () => {
         .expect('Content-Type', /json/)
         .expect(200);
 
-      const newMarble = { 
-        'category': 'party', 
-        'complexity': 5, 
-        'id': 6, 
-        'name': 'updated marbles', 
-        'owner_id': 1,
+      const newMarble = {
+        id: 6,
+        name: 'replace',
+        image: 'this contents',
+        description: 'if thi ',
+        category: 'object',
+        price: '50',
+        cost: '5',
+        owner_id: 1,
       };
 
       expect(marbles.body).not.toContainEqual(newMarble);

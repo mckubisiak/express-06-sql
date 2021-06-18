@@ -152,15 +152,14 @@ describe('app routes', () => {
       expect(marbles.body).toContainEqual(newMarble);
     });
     
-    test('/PUT marbles updates a single marbles', async() => {
+    test('updates a single marble', async() => {
 
-      // make a request to update the new marbles
       const data = await fakeRequest(app)
         .put('/marbles/6')
         .send({
           name: 'replace',
           image: 'this contents',
-          description: 'if thi ',
+          description: 'if thi',
           category: 'object',
           price: '50',
           cost: '5'
@@ -168,8 +167,7 @@ describe('app routes', () => {
         .expect('Content-Type', /json/)
         .expect(200);
 
-      // make a request to see all marbles
-      const marbles = await fakeRequest(app)
+      const marbleData = await fakeRequest(app)
         .get('/marbles')
         .expect('Content-Type', /json/)
         .expect(200);
@@ -178,29 +176,25 @@ describe('app routes', () => {
         id: 6,
         name: 'replace',
         image: 'this contents',
-        description: 'if thi ',
+        description: 'if thi',
         category: 'object',
         price: '50',
         cost: '5',
-        owner_id: 1,
+        owner_id: 1
       };
 
-      // check that the put request responds with the new marbles
       expect(data.body).toEqual(newMarble);
-      // check that the get request contians the new marbles
-      expect(marbles.body).toContainEqual(newMarble);
+      expect(marbleData.body).toContainEqual(newMarble);
     });
 
     test('/DELETE marbles deletes a single marbles', async() => {
 
-      // make a request to update the new marbles
       await fakeRequest(app)
-        .delete('/marble/6')
+        .delete('/marbles/6')
         .expect('Content-Type', /json/)
         .expect(200);
 
-      // make a request to see all marbles
-      const marbles = await fakeRequest(app)
+      const marbleData = await fakeRequest(app)
         .get('/marbles')
         .expect('Content-Type', /json/)
         .expect(200);
@@ -209,14 +203,14 @@ describe('app routes', () => {
         id: 6,
         name: 'replace',
         image: 'this contents',
-        description: 'if thi ',
+        description: 'if thi',
         category: 'object',
         price: '50',
         cost: '5',
-        owner_id: 1,
+        owner_id: 1
       };
 
-      expect(marbles.body).not.toContainEqual(newMarble);
+      expect(marbleData.body).not.toContainEqual(newMarble);
     });
   });
 });

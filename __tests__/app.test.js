@@ -38,7 +38,7 @@ describe('app routes', () => {
           name: 'Crack Attack',
           image: 'crackattack.png',
           description: 'Crack attack breaks other marbles in half',
-          category: 'rare',
+          rarity: 'rare',
           price:'189',
           cost: '16',
           owner_id: 1
@@ -48,7 +48,7 @@ describe('app routes', () => {
           name: 'Basic Blue',
           image: 'basicblue.png',
           description: 'Baisc blue has some boring swirls',
-          category: 'common',
+          rarity: 'common',
           price: '6.5',
           cost: '0.25',
           owner_id: 1
@@ -58,7 +58,7 @@ describe('app routes', () => {
           name: 'Windy',
           image: 'windy.png',
           description: 'Swwoooosh',
-          category: 'uncommon',
+          rarity: 'uncommon',
           price: '15',
           cost: '3',
           owner_id: 1
@@ -68,7 +68,7 @@ describe('app routes', () => {
           name: 'catyeye',
           image: 'catyeye.png',
           description: 'This ones just gonna knock your stuff down.',
-          category: 'common',
+          rarity: 'common',
           price: '50',
           cost: '4.25',
           owner_id: 1
@@ -78,7 +78,7 @@ describe('app routes', () => {
           name: 'Neuron',
           image: 'neuron.png',
           description: 'Swwoooosh',
-          category: 'rare',
+          rarity: 'rare',
           price:'250',
           cost: '45',
           owner_id: 1
@@ -100,7 +100,7 @@ describe('app routes', () => {
           name: 'catyeye',
           image: 'catyeye.png',
           description: 'This ones just gonna knock your stuff down.',
-          category: 'common',
+          rarity: 'common',
           price: '50',
           cost: '4.25',
           owner_id: 1
@@ -123,7 +123,7 @@ describe('app routes', () => {
             name: 'Earth Marble',
             image: 'earthmarble.png',
             description: 'spectacular object, terrible inhabitence ',
-            category: 'uncommon',
+            rarity: 'uncommon',
             price: '50',
             cost: '5'
           })
@@ -141,7 +141,7 @@ describe('app routes', () => {
         name: 'Earth Marble',
         image: 'earthmarble.png',
         description: 'spectacular object, terrible inhabitence ',
-        category: 'uncommon',
+        rarity: 'uncommon',
         price: '50',
         cost: '5',
         owner_id: 1
@@ -160,7 +160,7 @@ describe('app routes', () => {
           name: 'replace',
           image: 'this contents',
           description: 'if thi',
-          category: 'object',
+          rarity: 'object',
           price: '50',
           cost: '5'
         })
@@ -177,7 +177,7 @@ describe('app routes', () => {
         name: 'replace',
         image: 'this contents',
         description: 'if thi',
-        category: 'object',
+        rarity: 'object',
         price: '50',
         cost: '5',
         owner_id: 1
@@ -204,7 +204,7 @@ describe('app routes', () => {
         name: 'replace',
         image: 'this contents',
         description: 'if thi',
-        category: 'object',
+        rarity: 'object',
         price: '50',
         cost: '5',
         owner_id: 1

@@ -3,7 +3,9 @@ const client = require('../lib/client');
 // import our seed data:
 const marbles = require('./marbles.js');
 const usersData = require('./users.js');
+const rarityData = require('./raritys.js');
 const { getEmoji } = require('../lib/emoji.js');
+// const { getRarityIdByName } = require('../lib/utils.js');
 
 run();
 
@@ -25,13 +27,36 @@ async function run() {
       
     const user = users[0].rows[0];
 
-    await Promise.all(
-      marbles.map(marble => {
+    const rarityResponse = await Promise.all(
+      rarityData.map(rarity => {
         return client.query(`
-                    INSERT INTO marbles (name, image, description, category, price, cost, owner_id)
+                      INSERT INTO raritys (rarity)
+                      VALUES ($1)
+                      RETURNING *;
+                  `,
+        [rarity.rarity]);
+      })
+    );
+
+    const raritys = rarityResponse.map(response => {return response.rows[0];});
+    console.log(raritys);
+
+    await Promise.all(
+      marbles.map(marble => { 
+
+        const rarityFound =  raritys.find(rarity => {
+          return rarity.rarity === marble.rarity;
+        });
+        
+        console.log(rarityFound,  'THANKS FOR THE MEMORIES');
+        console.log(raritys, 'even though they werent so sweet');
+        console.log(marble.rarity, 'im running out of bad jokes');
+        
+        return client.query(`
+                    INSERT INTO marbles (name, image, description, rarity, price, cost, owner_id)
                     VALUES ($1, $2, $3, $4, $5, $6, $7);
                 `,
-        [marble.name, marble.image, marble.description, marble.category, marble.price, marble.cost, user.id]);
+        [marble.name, marble.image, marble.description, rarityFound.id, marble.price, marble.cost, user.id]);
       })
     );
     

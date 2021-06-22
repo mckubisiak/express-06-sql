@@ -10,7 +10,7 @@ async function run() {
     
     await client.query(`
             DROP TABLE IF EXISTS users CASCADE;
-            DROP TABLE IF EXISTS rarity CASCADE;
+            DROP TABLE IF EXISTS raritys CASCADE;
             DROP TABLE IF EXISTS marbles;
         `);
 

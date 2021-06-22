@@ -87,7 +87,7 @@ describe('app routes', () => {
 
       const data = await fakeRequest(app)
         .get('/marbles')
-        .expect('Content-Type', /json/)
+        .expect('Contgit sent-Type', /json/)
         .expect(200);
 
       expect(data.body).toEqual(expectation);

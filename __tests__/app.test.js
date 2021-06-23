@@ -39,6 +39,7 @@ describe('get routes', () => {
       const expectation = [
         {
           'name': 'catyeye',
+          'id': 4,
           'image': 'catyeye.png',
           'description': 'This ones just gonna knock your stuff down.',
           'rarity': 'common',
@@ -48,6 +49,7 @@ describe('get routes', () => {
         },
         {
           'name': 'Basic Blue',
+          'id': 2,
           'image': 'basicblue.png',
           'description': 'Baisc blue has some boring swirls',
           'rarity': 'common',
@@ -57,6 +59,7 @@ describe('get routes', () => {
         },
         {
           'name': 'Windy',
+          'id': 3,
           'image': 'windy.png',
           'description': 'Swwoooosh',
           'rarity': 'uncommon',
@@ -66,6 +69,7 @@ describe('get routes', () => {
         },
         {
           'name': 'Neuron',
+          'id': 5,
           'image': 'neuron.png',
           'description': 'Swwoooosh',
           'rarity': 'rare',
@@ -75,6 +79,7 @@ describe('get routes', () => {
         },
         {
           'name': 'Crack Attack',
+          'id': 1,
           'image': 'crackattack.png',
           'description': 'Crack attack breaks other marbles in half',
           'rarity': 'rare',
@@ -95,6 +100,7 @@ describe('get routes', () => {
     test('returns single marble', async() => {
       const expectation =
         {
+          'id': 4,
           'name': 'catyeye',
           'image': 'catyeye.png',
           'description': 'This ones just gonna knock your stuff down.',
@@ -127,43 +133,42 @@ describe('get routes', () => {
             rarity_id: rarityId,
             price: '50',
             cost: '5',
-            owner_id: 1,
-            id: 6
           })
 
         .expect('Content-Type', /json/)
         .expect(200);
 
       const marbles =  await fakeRequest(app)
-        .get('/marbles')
+        .get('/marbles/6')
         .expect('Content-Type', /json/)
         .expect(200);
 
       const postedMarble =  {
+        id: 6,
         name: 'Earth Marble',
         image: 'earthmarble.png',
         description: 'spectacular object, terrible inhabitence ',
         rarity_id: rarityId,
         price: '50',
         cost: '5',
-        owner_id: 1,
-        id: 6
+        owner_id: 1
       };
 
       const newMarble =  {
+        id: 6,
         name: 'Earth Marble',
         image: 'earthmarble.png',
         description: 'spectacular object, terrible inhabitence ',
-        rarity_id: 2,
+        rarity: 'uncommon',
         price: '50',
         cost: '5',
-        owner_id: 1,
-        id: 6
+        owner_id: 1
       };
 
+      console.log(data.body); 'SNAKES HERE GET YA NSAKES HERE';
 
       expect(data.body).toEqual(postedMarble);
-      expect(marbles.body).toContainEqual(newMarble);
+      expect(marbles.body).toEqual(newMarble);
     });
     
     test('updates a single marble', async() => {
@@ -213,7 +218,7 @@ describe('get routes', () => {
       };
 
       expect(data.body).toEqual(postedMarble);
-      expect(marbleData.body.results).toContainEqual(newMarble);
+      expect(marbleData.body).toEqual(newMarble);
     });
 
     test('/DELETE marbles deletes a single marbles', async() => {

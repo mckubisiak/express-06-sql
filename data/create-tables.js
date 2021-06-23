@@ -30,7 +30,7 @@ async function run() {
                     name VARCHAR(512) NOT NULL,
                     image VARCHAR(512) NOT NULL,
                     description VARCHAR(512) NOT NULL,
-                    rarity INTEGER NOT NULL REFERENCES raritys(id),
+                    rarity_id INTEGER NOT NULL REFERENCES raritys(id),
                     price DECIMAL NOT NULL,
                     cost DECIMAL NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)

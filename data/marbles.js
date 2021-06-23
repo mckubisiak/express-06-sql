@@ -4,7 +4,7 @@ module.exports = [
     name: 'Crack Attack',
     image: 'crackattack.png',
     description: 'Crack attack breaks other marbles in half',
-    rarity: 'rare',
+    rarity_id: 3,
     price: 189,
     cost: 16.00,
     owner_id: 1
@@ -14,7 +14,7 @@ module.exports = [
     name: 'Basic Blue',
     image: 'basicblue.png',
     description: 'Baisc blue has some boring swirls',
-    rarity: 'common',
+    rarity_id: 1,
     price: 6.50,
     cost: 0.25,
     owner_id: 1
@@ -24,7 +24,7 @@ module.exports = [
     name: 'Windy',
     image: 'windy.png',
     description: 'Swwoooosh',
-    rarity: 'uncommon',
+    rarity_id: 2,
     price: 15.00,
     cost: 3.00,
     owner_id: 1
@@ -34,7 +34,7 @@ module.exports = [
     name: 'catyeye',
     image: 'catyeye.png',
     description: 'This ones just gonna knock your stuff down.',
-    rarity: 'common',
+    rarity_id: 1,
     price: 50.00,
     cost: 4.25,
     owner_id: 1
@@ -44,9 +44,11 @@ module.exports = [
     name: 'Neuron',
     image: 'neuron.png',
     description: 'Swwoooosh',
-    rarity: 'rare',
+    rarity_id: 3,
     price: 250.00,
     cost: 45.00,
     owner_id: 1
-  }
+  },
+
+
 ];

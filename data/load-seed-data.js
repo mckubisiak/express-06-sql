@@ -45,15 +45,15 @@ async function run() {
       marbles.map(marble => { 
 
         const rarityFound =  raritys.find(rarity => {
-          return rarity.rarity === marble.rarity;
+          return rarity.id === marble.rarity_id;
         });
         
         console.log(rarityFound,  'THANKS FOR THE MEMORIES');
         console.log(raritys, 'even though they werent so sweet');
-        console.log(marble.rarity, 'im running out of bad jokes');
+        console.log(marble.rarity_id, 'im running out of bad jokes');
         
         return client.query(`
-                    INSERT INTO marbles (name, image, description, rarity, price, cost, owner_id)
+                    INSERT INTO marbles (name, image, description, rarity_id, price, cost, owner_id)
                     VALUES ($1, $2, $3, $4, $5, $6, $7);
                 `,
         [marble.name, marble.image, marble.description, rarityFound.id, marble.price, marble.cost, user.id]);
